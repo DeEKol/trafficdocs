@@ -1,12 +1,17 @@
 package com.dekol.trafficdocs.domain;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+
+import com.dekol.trafficdocs.domain.enums.QuantityUnit;
 
 import lombok.Data;
 
@@ -19,5 +24,10 @@ public class TripEntity {
 	private Long id;
 	private String itinerary;
 	private LocalDate date;
+	private Integer quantity;
+	
+	@Enumerated(EnumType.STRING)
+	private QuantityUnit quantityUnit;
+	private BigDecimal price;
 }
 
